@@ -1,0 +1,75 @@
+﻿@model Healkeep.Models.NaturalTreatments
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>NaturalTreatments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreEntities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreEntities)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diseases.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diseases.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diseases.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diseases.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Suprimir" class="btn btn-default" /> |
+
+           
+             @*|
+            @Html.ActionLink("Back to List", "Index")*@
+        </div>
+    }
+</div>

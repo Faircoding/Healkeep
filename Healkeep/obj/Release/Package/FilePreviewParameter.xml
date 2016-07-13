@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="HealkeepDev" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\jairo\.calderon\\Dropbox\\Projects\\Healkeep\\Healkeep\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\jairo\.calderon\\Dropbox\\Projects\\Healkeep\\Healkeep\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=z85bh090vm.database.windows.net;Initial Catalog=Healkeep_DB;Persist Security Info=True;User ID=jairo.calderon;Password=Nokia3595" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jairo\.calderon\\Dropbox\\Projects\\Healkeep\\Healkeep\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Healkeep_DBEntities-Web.config Connection String" description="" value="metadata=res://*/Models.HealkeepModel.csdl|res://*/Models.HealkeepModel.ssdl|res://*/Models.HealkeepModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=z85bh090vm.database.windows.net;Initial Catalog=Healkeep_DB;Persist Security Info=True;User ID=jairo.calderon;Password=Nokia3595&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\jairo\.calderon\\Dropbox\\Projects\\Healkeep\\Healkeep\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Healkeep_DBEntities']/@connectionString" />
+  </parameter>
+</parameters>

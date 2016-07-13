@@ -1,0 +1,28 @@
+﻿@model Healkeep.Models.NaturalTreatments
+
+@*List of treatments for a disease*@
+
+<tr>
+    <td>
+        @Html.ActionLink(Model.Name, "Details", "NaturalTreatments", new { id = Model.NaturalTreatmentID }, null)
+    </td>
+    @*<td>
+        <span class="checkbox">
+            <label><input type="checkbox" value=Model.Treatment></label>
+            @Html.DisplayFor(modelItem => Model.Treatment)
+        </span>
+    </td>
+    <td>
+        <span class="checkbox input[type="checkbox"]">
+            @Html.DisplayFor(modelItem => Model.Prevention)
+        </span>
+    </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => Model.ScoreUsers)
+    </td>
+
+</tr>
+        
+@*<div class="checkbox">
+    <label><input type="checkbox" value="">Option 1</label>
+</div>*@

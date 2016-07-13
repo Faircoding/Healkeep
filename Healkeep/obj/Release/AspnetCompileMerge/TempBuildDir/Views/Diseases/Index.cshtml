@@ -1,0 +1,81 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+<link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.10.4.custom.js"></script>
+
+@*<script type="text/javascript">
+    $(function () {
+        $("#txtSearch").autocomplete({
+            source: '@Url.Action("GetDiseases")'
+        });
+    });
+</script>*@
+
+@model IPagedList<Healkeep.Models.Diseases>
+
+@{
+    ViewBag.Title = "Dolencias y enfermedades";
+}
+
+<h3>Dolencias y enfermedades</h3>
+
+<p>
+    @Html.ActionLink("Adicionar dolencia o enfermedad", "Create")
+</p>
+
+<p>
+    @*@using(@Html.BeginForm("Index","Diseases", FormMethod.Get))
+    { 
+        @Html.TextBox("Search") <input type="submit" value="Buscar" />
+    }*@
+    @using (@Html.BeginForm())
+        {
+            @Html.TextBox("SearchTerm",null,new {id = "txtSearch"})
+            <input type="submit" value="Buscar" />
+        }
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nombre", "Index", new { sortBy = ViewBag.SortNameParameter, search = Request["search"] }, new { @class = "txt tableheader" })
+            @*@Html.DisplayNameFor(model => model.First().Name)*@
+        </th>
+      </tr>
+
+@foreach (var disease in Model) {
+    <tr>
+        <td>
+            <b>@Html.ActionLink(disease.Name, "Details", new { id = disease.DiseaseID })</b>
+            @*</td>
+        <td>*@
+            <br>
+            @Html.DisplayFor(modelItem => disease.Description)
+            @*</td>
+        <td>*@
+            <br>
+            <p><a href=@Html.DisplayFor(modelItem => disease.URLwiki) target="_blank">@Html.DisplayFor(modelItem => disease.URLwiki)</a></p>
+            @*</td>
+        <td>*@
+            @Html.ActionLink("Edit", "Edit", new { id = disease.DiseaseID }) |
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = disease.DiseaseID })
+            }
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, search = Request.QueryString["search"], sortBy=Request["sortBy"]}),
+new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded, DisplayPageCountAndCurrentLocation = true})
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/Scripts/jquery-1.10.2.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.10.4.custom.min.js")
+@Scripts.Render("~/Scripts/jquery-ui-1.10.4.custom.js")

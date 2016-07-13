@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myModule">
+
+<head>
+    <title></title>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <!--<link href="Content/Styles.css" rel="stylesheet" />-->
+</head>
+
+
+
+<body ng-controller="myController2">
+    
+    <br /><br />
+    <div>
+        <div ng-repeat="comment in comments">
+            <div>
+                {{comment.VoteUp}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--<html xmlns="http://www.w3.org/1999/xhtml" ng-app="demoApp">
+
+<head>
+    <title></title>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <link href="Content/Styles.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="diseaseController">
+    <span ng-repeat="disease in diseases">
+        <button ng-click="scrollTo(disease.Name)">{{disease.Name}}</button>
+    </span>
+    <br /><br />
+    <div>
+        <fieldset ng-repeat="disease in diseases" id="{{disease.Name}}">
+            <legend>
+                {{disease.Name}}
+            </legend>
+            <ul>
+                <li ng-repeat="naturalTreatment in disease.NaturalTreatments">
+                    {{naturalTreatment.Name}}
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+</body>
+</html>-->

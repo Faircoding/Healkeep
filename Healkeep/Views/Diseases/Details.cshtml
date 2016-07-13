@@ -1,0 +1,62 @@
+﻿@model Healkeep.Models.Diseases
+
+@{
+    ViewBag.Title = "Dolencia";
+}
+
+@Html.Partial("_Disease")
+
+<div>
+     
+    <b>TRATAMIENTOS</b>
+
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Puntaje
+            </th>
+        </tr>
+
+        @foreach (var naturalTreatment in Model.NaturalTreatments.Where(m => m.Treatment == true).Where(m => m.Approved == true).OrderByDescending(m => m.ScoreUsers))
+        {
+            @Html.Partial("_NaturalTreatments", naturalTreatment)
+        }
+    </table>
+
+    @Html.ActionLink("Adicionar un tratamiento", "Create_", "NaturalTreatments", new { id = Model.DiseaseID, IsTreat = true, IsPrev = false }, null)
+
+</div>
+
+<hr />
+<b>PREVENCIONES</b>
+
+
+<div>
+
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Puntaje
+            </th>
+        </tr>
+
+        @foreach (var naturalTreatment in Model.NaturalTreatments.Where(m => m.Prevention == true).OrderByDescending(m => m.ScoreUsers))
+        {
+            @Html.Partial("_NaturalTreatments", naturalTreatment)
+        }
+    </table>
+
+    @Html.ActionLink("Adicionar una prevencion", "Create_", "NaturalTreatments", new { id = Model.DiseaseID, IsTreat = false, IsPrev = true }, null)
+
+</div>
+&nbsp;
+<p>
+    @*@Html.ActionLink("Editar", "Edit", new { id = Model.DiseaseID }) |*@
+    @Html.ActionLink("Volver a la lista de dolencias", "Index")
+</p>

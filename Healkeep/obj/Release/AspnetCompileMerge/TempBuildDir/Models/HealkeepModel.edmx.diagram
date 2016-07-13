@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9569c7f80cde4db189cfac2aa81f5e5f" Name="Diagram1">
+        <EntityTypeShape EntityType="Healkeep_DBModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.AspNetUserComments" Width="2.25" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.AspNetUsers" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.Comments" Width="3.625" PointX="8.5" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_AspNetUserComments_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_AspNetUserComments_Comments" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_AspNetUserComment" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_CommentComment" ManuallyRouted="false" />
+        <AssociationConnector Association="Healkeep_DBModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.Diseases" Width="1.5" PointX="3.75" PointY="3.875" />
+        <EntityTypeShape EntityType="Healkeep_DBModel.NaturalTreatments" Width="1.5" PointX="6" PointY="3" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_AspNetUserComments_NaturalTreatment" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_NaturalTreatment_AspNetUsers" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_NaturalTreatmentComment" />
+        <AssociationConnector Association="Healkeep_DBModel.FK_NaturalTreatment_Disease" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Healkeep", "Healkeep\Healkeep.csproj", "{6344EDED-61CA-4326-82A9-76563C039E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{B6A86DBE-9184-4503-A3E0-93EE668009E4}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HealkeepData", "HealkeepData\HealkeepData.sqlproj", "{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6344EDED-61CA-4326-82A9-76563C039E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6344EDED-61CA-4326-82A9-76563C039E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6344EDED-61CA-4326-82A9-76563C039E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6344EDED-61CA-4326-82A9-76563C039E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A86DBE-9184-4503-A3E0-93EE668009E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A86DBE-9184-4503-A3E0-93EE668009E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A86DBE-9184-4503-A3E0-93EE668009E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A86DBE-9184-4503-A3E0-93EE668009E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E41D6EEE-8C17-499D-AAD9-B147C0B9069E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,112 @@
+﻿@model Healkeep.Models.AspNetUsers
+
+@{
+    ViewBag.Title = "Thanks_Update.cshtml";
+}
+
+<h2>Gracias por su aporte.</h2>
+<p class="text-primary">Le enviaremos un correo electronico cuando haya sido publicado su tratamiento. (normalmente en un periodo de 48 horas)</p>
+<br/>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @ViewBag.DiseaseID
+
+    </div>
+
+        <div class="form-horizontal">
+            <h4>Actualice su perfil</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+     
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.EmailConfirmed, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.EmailConfirmed, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.PhoneNumberConfirmed, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumberConfirmed, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.TwoFactorEnabled, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.TwoFactorEnabled, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.LockoutEndDateUtc, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.LockoutEndDateUtc, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.SecurityStamp, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.SecurityStamp, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.PhoneNumberConfirmed, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumberConfirmed, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.LockoutEnabled, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.LockoutEnabled, "", new { @class = "hidden" })
+            </div>
+
+            <div class="hidden">
+                @Html.EditorFor(model => model.AccessFailedCount, new { htmlAttributes = new { @class = "hidden" } })
+                @Html.ValidationMessageFor(model => model.AccessFailedCount, "", new { @class = "hidden" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div>
+            @*@Html.ActionLink("Back to List", "Index")*@
+            @Html.ActionLink("Volver a la lista de tratamientos", "Details", "Diseases", new { id = ViewBag.NuiID }, null)
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

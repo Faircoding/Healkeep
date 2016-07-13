@@ -1,0 +1,50 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[AspNetRoles] (Table)
+       [dbo].[AspNetUserClaims] (Table)
+       [dbo].[AspNetUserClaims].[IX_FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId] (Index)
+       [dbo].[AspNetUserComments] (Table)
+       [dbo].[AspNetUserLogins] (Table)
+       [dbo].[AspNetUserLogins].[IX_FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId] (Index)
+       [dbo].[AspNetUserRoles] (Table)
+       [dbo].[AspNetUserRoles].[IX_FK_AspNetUserRoles_AspNetUser] (Index)
+       [dbo].[AspNetUsers] (Table)
+       [dbo].[Comments] (Table)
+       [dbo].[Comments].[IX_FK_AspNetUserComment] (Index)
+       [dbo].[Comments].[IX_FK_NaturalTreatmentComment] (Index)
+       [dbo].[Comments].[IX_FK_CommentComment] (Index)
+       [dbo].[Diseases] (Table)
+       [dbo].[NaturalTreatments] (Table)
+       [dbo].[NaturalTreatments].[IX_FK_NaturalTreatment_Disease] (Index)
+       [dbo].[NaturalTreatments].[IX_FK_NaturalTreatment_AspNetUsers] (Index)
+       [dbo].[Test] (Table)
+       [dbo].[DF_AspNetUserComments_Checked] (Default Constraint)
+       [dbo].[DF_Comments] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Comments] (Default Constraint)
+       Default Constraint: unnamed constraint on [dbo].[Comments] (Default Constraint)
+       [dbo].[FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId] (Foreign Key)
+       [dbo].[FK_AspNetUserComments_AspNetUsers] (Foreign Key)
+       [dbo].[FK_AspNetUserComments_Comments] (Foreign Key)
+       [dbo].[FK_AspNetUserComments_NaturalTreatment] (Foreign Key)
+       [dbo].[FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId] (Foreign Key)
+       [dbo].[FK_AspNetUserRoles_AspNetRole] (Foreign Key)
+       [dbo].[FK_AspNetUserRoles_AspNetUser] (Foreign Key)
+       [dbo].[FK_AspNetUserComment] (Foreign Key)
+       [dbo].[FK_CommentComment] (Foreign Key)
+       [dbo].[FK_NaturalTreatmentComment] (Foreign Key)
+       [dbo].[FK_NaturalTreatment_AspNetUsers] (Foreign Key)
+       [dbo].[FK_NaturalTreatment_Disease] (Foreign Key)
+       [dbo].[spAddRole] (Procedure)
+       [dbo].[spGetAllRoles] (Procedure)
+
+** Supporting actions

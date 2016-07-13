@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+h1 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+}
+
+</style>
+<div class="jumbotron">
+
+    @*<p>
+            <a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a>
+        </p>*@
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <img src='@Url.Content("~/Content/Images/Main-leaf.jpg")' alt="Leaf" style="width:100%; height:auto" background-size="cover" background-repeat="no-repeat" />
+        </div>
+        <div class="col-md-4">
+            <h1>Tu salud es lo primero</h1>
+            <h3 class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</h3>
+            <h3><img src='@Url.Content("~/Content/Images/arrow_down.png")' alt="arrow down" style="width:auto; height:auto" background-repeat="no-repeat" /></h3>
+        </div>
+    </div>
+
+    @*<img src='@Url.Content("~/Content/Images/Main-leaf.jpg")' alt="Leaf" style="width:100%; height:auto" background-size="contain" background-repeat="no-repeat" />*@
+
+    @*&nbsp;*@
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+
+        <h2>@Html.ActionLink("Dolencias y Enfermedades", "Index", "Diseases", null, new { @class = "btn btn-success", @style = "width:200px;" })</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+    </div>
+    <div class="col-md-4">
+        @*Doctores*@
+        <h2>@Html.ActionLink("********", null, null, null, new { @class = "btn btn-success", @style = "width:200px;" })</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        @*<p><a class="btn btn-default" @Html.ActionLink("Comenzar", "Index", "Diseases") </a></p>*@
+    </div>
+    <div class="col-md-4">
+        @*Instituciones de salud*@
+        <h2>@Html.ActionLink("****************", null, null, null, new { @class = "btn btn-success", @style = "width:200px;" })</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications. You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+    </div>
+    <div class="col-md-4">
+        @*Sintomas*@
+        <h2>@Html.ActionLink("********", null, null, null, new { @class = "btn btn-success", @style = "width:200px;" })</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+    </div>
+    <div class="col-md-4">
+        @*Productos*@
+        <h2>@Html.ActionLink("*********", null, null, null, new { @class = "btn btn-success", @style = "width:200px;" })</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model Healkeep.Models.Diseases
+
+<div>
+    <br />
+    @Html.ActionLink("Dolencia", "Index", "", new { @class = "h6" })
+</div>
+<div>
+    <h2>@Html.DisplayFor(model => model.Name, "", new { @class = "bold" })</h2>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.URLwiki)
+        </dt>
+
+        <dd>
+            <p><a href=@Html.DisplayFor(model => model.URLwiki) target="_blank">@Html.DisplayFor(model => model.URLwiki)</a></p>
+        </dd>
+    </dl>
+</div>

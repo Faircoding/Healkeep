@@ -1,0 +1,6 @@
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\bin\Debug\API.exe.config
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\bin\Debug\API.exe
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\bin\Debug\API.pdb
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\obj\Debug\API.csprojResolveAssemblyReference.cache
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\obj\Debug\API.exe
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\API\obj\Debug\API.pdb

@@ -1,0 +1,9 @@
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\bin\Debug\HealkeepData.dacpac
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\bin\Debug\HealkeepData.dll
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\bin\Debug\HealkeepData.pdb
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\Model.xml
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\refactor.xml
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\postdeploy.sql
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\predeploy.sql
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\HealkeepData.dll
+C:\Users\jairo.calderon\Dropbox\Projects\Healkeep\HealkeepData\obj\Debug\HealkeepData.pdb
