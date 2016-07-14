@@ -15,6 +15,12 @@ namespace Healkeep.Controllers
     {
         private Healkeep_DBEntities db = new Healkeep_DBEntities();
 
+        public PartialViewResult All()
+        {
+            List<Comments> model = db.Comments.ToList();
+            return PartialView("_Comments", model);
+        }
+
 
         // GET: TreatComments/Details/5
         [Authorize]
@@ -33,36 +39,20 @@ namespace Healkeep.Controllers
             return PartialView("_Comment", comment);
         }
 
-
-        //PartialView: Comments/VoteUp/5
         //[AcceptVerbs(HttpVerbs.Post), Authorize]
-        [Authorize]
-        [HttpPost]
         //public PartialViewResult _VoteUp([Bind(Include = "CommentID")] Comments comment)
-
-        public PartialViewResult _VoteUp([Bind(Include = "CommentID")] Comments comment)
-        //public PartialViewResult _VoteUp(int commentId)
+        public PartialViewResult _VoteUp(int commentId)
         {
             var currentUserId = User.Identity.GetUserId();
             List<AspNetUserComments> userComments;
             userComments = db.AspNetUserComments.Where(x => x.AspNetUserID == currentUserId).ToList();
-
+            var comment = db.Comments.Single(n => n.CommentID == commentId);
             if (userComments.Count == 0)
             {
-                //comment.Description = db.Comments.Single(n => n.CommentID == comment.CommentID).Description;
-                //comment.CreatedTime = db.Comments.Single(n => n.CommentID == comment.CommentID).CreatedTime;
-                //comment.AspNetUserID = db.Comments.Single(n => n.CommentID == comment.CommentID).AspNetUserID;
-                //comment.NaturalTreatmentID = db.Comments.Single(n => n.CommentID == comment.CommentID).NaturalTreatmentID;
-                //comment.CommentCommentID = db.Comments.Single(n => n.CommentID == comment.CommentID).CommentCommentID;
-                //comment.VoteUp = (db.Comments.Single(n => n.CommentID == comment.CommentID).VoteUp) + 1;
-                //comment.VoteDown = db.Comments.Single(n => n.CommentID == comment.CommentID).VoteDown;
-
-
-                var comments = db.Comments.Single(n => n.CommentID == comment.CommentID);
-            if(comment != null)
-            {
-                comment.VoteUp = comment.VoteUp +1;
-            }
+                if (comment != null)
+                {
+                    comment.VoteUp = comment.VoteUp + 1;
+                }
                 if (ModelState.IsValid)
                 {
                     var local = db.Set<Comments>()
@@ -84,7 +74,7 @@ namespace Healkeep.Controllers
                     aspNetUserscomments.CheckedUp = true;
                     db.AspNetUserComments.Add(aspNetUserscomments);
                     //ViewBag.AspNetUserCommentsChecked = db.AspNetUserComments.Single(m => m.AspNetUserCommentID == aspNetUserscomments.CommentID).CheckedUp;
-                    return PartialView("_Comment", comment);
+                    return PartialView("_CommentCheckedUp", comment);
                 }
                 return PartialView("_CommentCheckedUp", comment);
             }

@@ -1,109 +1,46 @@
-﻿
-@*<link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />*@
+﻿@model Healkeep.Models.Comments
 
-@model Healkeep.Models.Comments
 <head>
     <title></title>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/Script.js"></script>
 </head>
 
-<div ng-app="app" ng-controller="commentCtrl">
 
-    @*   <div><b>@Html.DisplayTextFor(modelItem => Model.AspNetUsers.UserName)</b></div>*@
-    <div class="col-md-offset-1">
-        @Html.DisplayTextFor(modelItem => Model.Description)
-        <p></p>
-        @Html.DisplayTextFor(modelItem => Model.CreatedTime)
-        <p></p>
-        @Html.DisplayTextFor(modelItem => Model.AspNetUsers.UserName)
-        <p></p>
-        @*<div id=@Model.CommentID>*@
-        <div>
-            <div style="float:left">
-                <span class="badge">@Html.DisplayTextFor(modelItem => Model.VoteUp)</span>
+<div class="col-md-offset-1">
+    @Html.DisplayNameFor(modelItem => Model.Description)
+    <p></p>
+    @Html.DisplayTextFor(modelItem => Model.CreatedTime)
+    <p></p>
+    @Html.DisplayTextFor(modelItem => Model.AspNetUsers.UserName)
+    <p></p>
+    @Ajax.ActionLink("voteUp", "All", "Comments", new AjaxOptions()
+    {
+        HttpMethod = "GET",
+        UpdateTargetId = Model.CommentID.ToString(),
+        InsertionMode = InsertionMode.Replace
+    })
 
-                @*@if ( Model.Checked == false )*@
-                @Ajax.ImageAjaxActionLink("../../Content/Images/up.png", "VoteUp", "_VoteUp", "Comments", new { commentId = Model.CommentID }, new AjaxOptions
-                           {
-                               HttpMethod = "POST",
-                               UpdateTargetId = Model.CommentID.ToString(),
-                               InsertionMode = InsertionMode.Replace
-                           }, new { style = "null" })
-                @*<div ng-app="myModule2">
-                        <div ng-controller="myController">
-                            <div ng-repeat="technology in technologies">
-                                <div>
-                                    {{ technology.name}}
-                                </div>
-                                <div>
-                                    {{ technology.likes}}
-                                </div>
-                                <div>
-                                    {{ technology.dislikes}}
-                                </div>
-                                <div>
-                                    <input type="button" value="Like" ng-click="incrementLikes(technology)" />
-                                    <input type="button" value="DisLike" ng-click="incrementDislikes(technology)" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>*@
-                @*<div ng-app="myModule">*@
-                @*<div ng-repeat="comment in comments">
-                    <div>
-                        {{comment.VoteUp}}
-                    </div>
-                </div>*@
-                @*</div>*@
+    <span style="color:blue"> | </span>
 
-            </div>
-            @*else
-                {
-                    @Ajax.ImageAjaxActionLink("../../Content/Images/upOk.png", "UpOk", "VoteUp", "Comments", new { commentId = Model.Comments.CommentID }, new AjaxOptions
-                   {
-                       HttpMethod = "POST",
-                       UpdateTargetId = Model.Comments.CommentID.ToString(),
-                       InsertionMode = InsertionMode.Replace
-                   }, new { style = "null" })
-                }*@
-        </div>
-        @*<div style="float:left">
-                <span class="badge">@Html.DisplayTextFor(modelItem => Model.VoteDown)</span>
-                @Ajax.ImageAjaxActionLink("../../Content/Images/down.png", "VoteDown", "VoteDown", "Comments", new { commentId = Model.CommentID }, new AjaxOptions
-                                                                                                                                           {
-                                                                                                                                               HttpMethod = "POST",
-                                                                                                                                               UpdateTargetId = Model.CommentID.ToString(),
-                                                                                                                                               InsertionMode = InsertionMode.Replace
-                                                                                                                                           }, new { style = "null" })
-            </div>*@
+    <div id=@Model.CommentID.ToString()>
+
     </div>
-    <br />
-    <br />
-    <br />
-</div>
-
-@*<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myModule">
-
-<head>
-    <title></title>
-    <script src="Scripts/angular.min.js"></script>
-    <script src="Scripts/Script.js"></script>
-    <link href="Content/Styles.css" rel="stylesheet" />
-</head>
-
-<body ng-controller="myController2">
-
-    <br /><br />
     <div>
-        <div ng-repeat="comment in comments">
-            <div>
-                {{comment.VoteUp}}
+        @*<div style="display:inline">
+                @Ajax.ActionLink("VoteUp", "_VoteUp", "Comments", new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = Model.CommentID.ToString(),
+                        InsertionMode = InsertionMode.Replace
+                    }
+                    , new { style = "null" })
             </div>
-        </div>
-    </div>
-</body>
-</html>*@
+            <div id=@Model.CommentID>
+                <span class="badge">@Html.DisplayTextFor(modelItem => Model.VoteUp)</span>
+            </div>*@
 
+    </div>
+</div>

@@ -68,3 +68,21 @@ h3 {
         <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
     </div>
 </div>
+
+
+<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>
+<h2>Comments</h2>
+@Ajax.ActionLink("All", "All", "Comments", new AjaxOptions()
+{
+    HttpMethod = "GET",
+    UpdateTargetId = "divStudents",
+    InsertionMode = InsertionMode.Replace
+
+})
+
+<span style="color:blue"> | </span>
+
+<div id="divStudents">
+
+</div>

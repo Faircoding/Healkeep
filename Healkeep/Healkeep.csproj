@@ -345,6 +345,7 @@
     <Content Include="Content\Images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\Images\up.png" />
     <Content Include="Content\Images\upOk.png" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Content\jquery-ui-1.10.4.custom.css" />
     <Content Include="Content\jquery-ui-1.10.4.custom.min.css" />
     <Content Include="Content\Original\bootstrap.css" />
@@ -470,7 +471,7 @@
     <Content Include="Views\Shared\_Disease.cshtml" />
     <Content Include="Views\Shared\_NaturalTreatments.cshtml" />
     <Content Include="Views\Comments\_VoteUp.cshtml" />
-    <Content Include="Views\Shared\_Comment2.cshtml" />
+    <Content Include="Views\Shared\_Comments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Home\Img\" />

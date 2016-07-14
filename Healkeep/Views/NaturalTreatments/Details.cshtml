@@ -1,174 +1,134 @@
 ﻿@model Healkeep.Models.NaturalTreatments
 
-@*<link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />*@
-
-   
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="Scripts/Script.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="Scripts/Script.js"></script>
 @{
     ViewBag.Title = "Tratamiento Natural";
 }
-    @{
-
-        //e-Consent
-        AjaxOptions options = new AjaxOptions
-        {
-            UpdateTargetId = "voteUp",
-            InsertionMode = InsertionMode.Replace,
-        };
-        //e-Consent
-        AjaxOptions options2 = new AjaxOptions
-        {
-            UpdateTargetId = "voteDown",
-            InsertionMode = InsertionMode.Replace,
-        };
-        //Customer link
-        AjaxOptions options3 = new AjaxOptions
-        {
-            UpdateTargetId = "voteMine",
-            InsertionMode = InsertionMode.Replace,
-        };
-    }
 
 
+<div>
+    <br />
+    <h6 class="center">@Html.ActionLink((string)ViewBag.DiseaseName, "Details", "Diseases", new { id = Model.DiseaseID }, new { @class = "h6" }) | Tratamiento</h6>
+</div>
 
-    @*@ViewBag.DiseaseID
-        @Html.Partial("_Disease", new ViewDataDictionary { { "Id", ViewBag.DiseaseID } });*@
+<h2>@Html.DisplayFor(model => model.Name, "", new { @class = "bold" })</h2>
 
-    <div>
-        <br />
-        <h6 class="center">@Html.ActionLink((string)ViewBag.DiseaseName, "Details", "Diseases", new { id = Model.DiseaseID }, new { @class = "h6" }) | Tratamiento</h6>
-    </div>
-
-    <h2>@Html.DisplayFor(model => model.Name, "", new { @class = "bold" })</h2>
-
-    <div>
-
-        <hr />
-        <dl class="dl-horizontal">
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ScoreUsers)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ScoreUsers)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ScoreEntities)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ScoreEntities)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-
-            <dd>
-                @Html.Raw("<p>" + Html.DisplayTextFor(model => model.Description) + "</p>")
-            </dd>
-
-        </dl>
-    </div>
-
+<div>
 
     <hr />
-    <h4>Comentarios</h4>
+    <dl class="dl-horizontal">
 
-    @using (Html.BeginForm("Details", "NaturalTreatments", FormMethod.Post))
-    {
-        <fieldset>
-            <div class="container-fluid">
-                <div class="row">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreUsers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreUsers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreEntities)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreEntities)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.Raw("<p>" + Html.DisplayTextFor(model => model.Description) + "</p>")
+        </dd>
+
+    </dl>
+</div>
 
 
-                    <div class="form-group">
-                        <label class="control-label" for="inputLarge">@User.Identity.Name</label>
-                        <input class="form-control input-lg" type="text" id="inputLarge" name="commentDescription">
-                        <input class="hidden" type="number" id="input" value=@Model.NaturalTreatmentID name="naturalTreatmentId">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" id="btnCancel" name="btnSubmit" value="Cancel" onclick="$('#submitForm').submit()" class=" btn btn-default" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" id="btnSubmit" name="btnSubmit" value="Submit" class=" btn btn-primary">Aceptar</button>
-                    </div>
+<hr />
+<h4>Comentarios</h4>
 
+@using (Html.BeginForm("Details", "NaturalTreatments", FormMethod.Post))
+{
+    <fieldset>
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="form-group">
+                    <label class="control-label" for="inputLarge">@User.Identity.Name</label>
+                    <input class="form-control input-lg" type="text" id="inputLarge" name="commentDescription">
+                    <input class="hidden" type="number" id="input" value=@Model.NaturalTreatmentID name="naturalTreatmentId">
                 </div>
-            </div>
-        </fieldset>
-    }
-    <br />
-    <div>
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#newest" data-toggle="tab">Recientes</a></li>
-            <li><a href="#bestRated" data-toggle="tab">Mas valorados</a></li>
+                <div class="modal-footer">
+                    <button type="submit" id="btnCancel" name="btnSubmit" value="Cancel" onclick="$('#submitForm').submit()" class=" btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" id="btnSubmit" name="btnSubmit" value="Submit" class=" btn btn-primary">Aceptar</button>
+                </div>
 
-        </ul>
-        <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active in" id="newest">
-                <p></p>
-                @*@Html.ActionLink("VoteUp", "_VoteUp","Comments",null)*@
-
-
-
-                @foreach (var comment in Model.Comments.Where(m => m.NaturalTreatmentID == Model.NaturalTreatmentID).OrderByDescending(m => m.CreatedTime))
-                    {
-                        ////if ((ViewBag.UserCommentsCheckedUp == false && ViewBag.UserCommentsCheckedDown == false) || ViewBag.currentUserId == null || (ViewBag.UserCommentsCheckedUp == null && ViewBag.UserCommentsCheckedDown == null))
-                        ////{
-                            <div id=@comment.CommentID>
-
-                                @Html.Partial("_Comment", comment)
-
-                            </div>
-                    }
-
-
-                        @*<br /><br />
-                        <div>
-                            <div ng-repeat="comment in comments">
-                                <div>
-                                    {{comment.VoteUp}}
-                                </div>
-                            </div>
-                        </div>*@
-    
-                @*else if (ViewBag.UserCommentsCheckedUp == true && ViewBag.UserCommentsCheckedDown == false)
-                    {
-                        <div id=@comment.CommentID>
-
-                            @Html.Partial("_CommentCheckedUp", comment)
-
-                        </div>
-                    }
-                    else if (ViewBag.UserCommentsCheckedUp == false && ViewBag.UserCommentsCheckedDown == true)
-                    {
-                        <div id=@comment.CommentID>
-
-                            @Html.Partial("_CommentCheckedDown", comment)
-
-                        </div>
-                    }*@
-                <br />
-                <hr />
-
-
-            </div>
-            <div class="tab-pane fade" id="bestRated">
-                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
             </div>
         </div>
-    </div>
+    </fieldset>
+}
+<br />
+<div>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#newest" data-toggle="tab">Recientes</a></li>
+        <li><a href="#bestRated" data-toggle="tab">Mas valorados</a></li>
 
-    <p>
-        @Html.ActionLink("Editar", "Edit", new { id = Model.NaturalTreatmentID }) |
-        @Html.ActionLink("Suprimir", "Delete", new { id = Model.NaturalTreatmentID }) |
-        @Html.ActionLink("Volver a la lista de tratamientos", "Details", "Diseases", new { id = Model.DiseaseID }, null)
-        @if (User.IsInRole("Admin"))
-        {
-            @Html.ActionLink("Approval", "Approval", new { id = Model.NaturalTreatmentID })
-        }
-    </p>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="newest">
+            <p></p>
+
+            @foreach (var comment in Model.Comments.Where(m => m.NaturalTreatmentID == Model.NaturalTreatmentID).OrderByDescending(m => m.CreatedTime))
+            {
+                @*<div id=@comment.CommentID></div>*@
+                <div>
+                    @*@Html.Partial("_Comment", comment)*@
+
+                    <div class="col-md-offset-1">
+                        @comment.Description
+                        <p></p>
+                        @comment.CreatedTime
+                        <p></p>
+                        @comment.AspNetUsers.UserName
+                        <p></p>
+                        @Ajax.ActionLink("voteUp", "_VoteUp", "Comments", new {comment.CommentID}, new AjaxOptions()
+                            {
+                                HttpMethod = "GET",
+                                UpdateTargetId = comment.CommentID.ToString(),
+                                InsertionMode = InsertionMode.Replace
+                            })
+
+                        <span style="color:blue"> | </span>
+
+                        <div id=@comment.CommentID.ToString()>
+
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+            }
+            <br />
+            <hr />
+        </div>
+        <div class="tab-pane fade" id="bestRated">
+            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+        </div>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.NaturalTreatmentID }) |
+    @Html.ActionLink("Suprimir", "Delete", new { id = Model.NaturalTreatmentID }) |
+    @Html.ActionLink("Volver a la lista de tratamientos", "Details", "Diseases", new { id = Model.DiseaseID }, null)
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Approval", "Approval", new { id = Model.NaturalTreatmentID })
+    }
+</p>

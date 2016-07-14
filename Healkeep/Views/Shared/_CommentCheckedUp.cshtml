@@ -2,52 +2,16 @@
 
 @*<link href="~/Content/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />*@
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+@*<script src="~/Scripts/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js" type="text/javascript"></script>*@
 
 <div>
-
-
-    <div><b>@Html.DisplayTextFor(modelItem => Model.AspNetUsers.UserName)</b></div>
     <div class="col-md-offset-1">
-
-        @Html.DisplayTextFor(modelItem => Model.Description)
-        <p></p>
-        @Html.DisplayTextFor(modelItem => Model.CreatedTime)
-        <p></p>
 
         <div style="float:left">
                 <span class="badge">@Html.DisplayTextFor(modelItem => Model.VoteUp)</span>
-
-
-                @*@if ( Model.Checked == false )*@
-                
-                @*@Ajax.ImageAjaxActionLink("../../Content/Images/upOk.png", "VoteUp", "VoteUp", "Comments", new { commentId = Model.CommentID }, new AjaxOptions
-                                                                                                                                        {
-                                                                                                                                            HttpMethod = "POST",
-                                                                                                                                            UpdateTargetId = Model.CommentID.ToString(),
-                                                                                                                                            InsertionMode = InsertionMode.Replace
-                                                                                                                                    }, new { style = "null" })*@
-                
-                @*else
-                {
-                    @Ajax.ImageAjaxActionLink("../../Content/Images/upOk.png", "UpOk", "VoteUp", "Comments", new { commentId = Model.Comments.CommentID }, new AjaxOptions
-                   {
-                       HttpMethod = "POST",
-                       UpdateTargetId = Model.Comments.CommentID.ToString(),
-                       InsertionMode = InsertionMode.Replace
-                   }, new { style = "null" })
-                }*@
+                @*@Html.Image("../../Content/Images/upOk.png", "VoteOk")*@
             </div>
-
-            @*<div style="float:left">
-                <span class="badge">@Html.DisplayTextFor(modelItem => Model.VoteDown)</span>
-                @Ajax.ImageAjaxActionLink("../../Content/Images/down.png", "VoteDown", "VoteDown", "Comments", new { commentId = Model.CommentID }, new AjaxOptions
-                                                                                                                                       {
-                                                                                                                                           HttpMethod = "POST",
-                                                                                                                                           UpdateTargetId = Model.CommentID.ToString(),
-                                                                                                                                           InsertionMode = InsertionMode.Replace
-                                                                                                                                       }, new { style = "null" })
-            </div>*@
     </div>
 </div>
+<br />
